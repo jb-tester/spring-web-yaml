@@ -1,6 +1,6 @@
 ###post
 POST http://localhost:8080/test2
-Accept: application/yaml
+#Accept: application/yaml
 Content-Type: application/yaml
 
 

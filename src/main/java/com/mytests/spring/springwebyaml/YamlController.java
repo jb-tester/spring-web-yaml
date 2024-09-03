@@ -1,16 +1,12 @@
 package com.mytests.spring.springwebyaml;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * *
- * <p>Created by irina on 9/2/2024.</p>
- * *
- */
+
 @RestController
 @RequestMapping("/")
 public class YamlController {
@@ -20,10 +16,17 @@ public class YamlController {
         return new MyWebData("aaa", List.of("bbb", "ccc"), new MyWebData.Nested("ddd"));
     }
 
+
+
     @PostMapping(value = "/test2", consumes = {"application/yaml", "application/yml"})
-    public String test2(@RequestBody MyWebData data) throws JsonProcessingException {
+    public String test2(@RequestBody MyWebData data)  {
 
         return data.toString();
+    }
+
+    @PostMapping("/test3")
+    public ResponseEntity<String> test3(@RequestBody MyWebData data) {
+        return ResponseEntity.ok(data.toString());
     }
 }
 class MyWebData{
