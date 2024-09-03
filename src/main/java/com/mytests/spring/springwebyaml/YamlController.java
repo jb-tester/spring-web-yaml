@@ -1,6 +1,7 @@
 package com.mytests.spring.springwebyaml;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +28,11 @@ public class YamlController {
     @PostMapping("/test3")
     public ResponseEntity<String> test3(@RequestBody MyWebData data) {
         return ResponseEntity.ok(data.toString());
+    }
+
+    @ExceptionHandler(produces = "")
+    public ResponseEntity<String> handleResourceNotFoundException(Exception e) {
+        return new ResponseEntity<>("Error has occurred: " + e.getMessage(), HttpStatus.SERVICE_UNAVAILABLE);
     }
 }
 class MyWebData{

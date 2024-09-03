@@ -17,3 +17,22 @@ nested:
 ###get
 GET http://localhost:8080/test1
 
+
+###
+POST http://localhost:8080/test3
+Content-Type: application/json
+
+{
+  "propOne": "",
+  "propTwo": ["",""],
+  "nested": {
+    "propThree": ""
+  }
+}
+
+###invalid
+POST http://localhost:8080/test3
+Content-Type: application/json
+
+
+aaa
