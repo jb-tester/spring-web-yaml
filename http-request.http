@@ -1,0 +1,19 @@
+###post
+POST http://localhost:8080/test2
+Accept: application/yaml
+Content-Type: application/yaml
+
+
+propOne: aaa
+propTwo:
+  - bbb
+  - ccc
+nested:
+   propThree: ddd
+
+
+
+
+###get
+GET http://localhost:8080/test1
+
