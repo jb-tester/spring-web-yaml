@@ -30,8 +30,8 @@ public class YamlController {
         return ResponseEntity.ok(data.toString());
     }
 
-    @ExceptionHandler(produces = "")
-    public ResponseEntity<String> handleResourceNotFoundException(Exception e) {
+    @ExceptionHandler(produces = "text/plain")
+    public ResponseEntity<String> handleException(Exception e) {
         return new ResponseEntity<>("Error has occurred: " + e.getMessage(), HttpStatus.SERVICE_UNAVAILABLE);
     }
 }
